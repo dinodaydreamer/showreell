@@ -3,6 +3,13 @@ import { Project, Service, Category } from './types';
 export const CATEGORIES: Category[] = ['TVC', 'FILM', 'MV', 'Fashion', 'REEL'];
 
 export const PROJECTS: Project[] = [
+  {
+    id: 'film-new',
+    title: { en: 'FILM: New Cinematic Project', vi: 'FILM: Dự án Điện ảnh Mới' },
+    category: 'FILM',
+    youtubeId: 'g5VKorCOaZc',
+    thumbnail: 'https://img.youtube.com/vi/g5VKorCOaZc/maxresdefault.jpg',
+  },
   // TVC
   {
     id: 'tvc-1',
@@ -170,48 +177,42 @@ export const SERVICES: Service[] = [
     description: { 
       en: 'High-impact AI-driven commercials for brands and products.',
       vi: 'Quảng cáo AI tác động cao cho các thương hiệu và sản phẩm.'
-    },
-    imageUrl: 'https://i.ibb.co/pSGv05j/124324.jpg'
+    }
   },
   {
-    title: { en: 'AI Training Courses', vi: 'Khóa Đào Tạo AI' },
+    title: { en: 'Comprehensive AI Filmmaking Training', vi: 'Đào tạo chuyên ngành làm phim AI trọn gói' },
     description: {
       en: 'Mastering AI tools for creative and professional excellence.',
       vi: 'Làm chủ các công cụ AI để đạt được sự xuất sắc trong sáng tạo và chuyên nghiệp.'
-    },
-    imageUrl: 'https://i.ibb.co/1fWmzgvx/Minimalist-AI-education-202604031637.jpg'
+    }
   },
   {
     title: { en: 'End-to-End Production', vi: 'Sản xuất trọn gói' },
     description: {
       en: 'Full-service production from script to final AI render.',
       vi: 'Dịch vụ sản xuất đầy đủ từ kịch bản đến bản render AI cuối cùng.'
-    },
-    imageUrl: 'https://i.ibb.co/dsJzzLJ6/Minimalist-marketing-concept-202604031626.jpg'
+    }
   },
   {
     title: { en: 'Cinematic AI Film Workflows', vi: 'Xây dựng Ứng dụng Workflow làm phim điện ảnh' },
     description: {
       en: 'Building custom AI-driven pipelines for professional cinematic production.',
       vi: 'Xây dựng các quy trình AI tùy chỉnh cho sản xuất phim điện ảnh chuyên nghiệp.'
-    },
-    imageUrl: 'https://i.ibb.co/HfSynR3n/Minimalist-AI-photography-202604031632.jpg'
+    }
   },
   {
-    title: { en: 'Marketing Campaign', vi: 'Marketing Campaign' },
+    title: { en: 'AI Concept & Visual', vi: 'AI Concept & Visual' },
     description: {
-      en: 'Strategic AI-integrated marketing solutions for global reach.',
-      vi: 'Các giải pháp tiếp thị tích hợp AI chiến lược để tiếp cận toàn cầu.'
-    },
-    imageUrl: 'https://i.ibb.co/Y4cgxPVt/Ultra-realistic-minimalist-202604031630.jpg'
+      en: 'Creating unique concepts and visuals for branding projects.',
+      vi: 'Sáng tạo các concept và visual cho các branding.'
+    }
   },
   {
-    title: { en: 'AI Photoshoot', vi: 'Chụp ảnh AI' },
+    title: { en: 'AI KOL/Influencer Affiliate', vi: 'AI KOL/Influencer Affiliate' },
     description: {
-      en: 'Professional photography without the physical set.',
-      vi: 'Chụp ảnh chuyên nghiệp mà không cần bối cảnh vật lý.'
-    },
-    imageUrl: 'https://i.ibb.co/pvMNCmZy/Minimalist-AI-image-202604031628.jpg'
+      en: 'Creating AI KOLs and content tailored for the digital marketing industry.',
+      vi: 'Tạo các KOL và content cho ngành tiếp thị số.'
+    }
   }
 ];
 

@@ -217,26 +217,25 @@ export default function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group relative p-10 border border-black/10 rounded-[3rem] overflow-hidden transition-all duration-500 flex flex-col justify-between h-72 cursor-pointer"
+                className="group relative p-10 border border-black/10 rounded-[3rem] bg-white hover:bg-black transition-all duration-500 flex flex-col justify-between h-72 cursor-pointer shadow-sm hover:shadow-2xl"
               >
-                {/* Background Image */}
-                <div className="absolute inset-0 z-0">
-                  <img 
-                    src={service.imageUrl} 
-                    alt="" 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-[0.5] group-hover:brightness-[0.3]"
-                    referrerPolicy="no-referrer"
-                  />
+                {/* Number Indicator */}
+                <div className="absolute top-10 right-10 text-4xl font-serif italic text-black/5 group-hover:text-white/10 transition-colors duration-500">
+                  {String(index + 1).padStart(2, '0')}
                 </div>
 
                 {/* Content */}
-                <div className="relative z-10 text-white h-full flex flex-col justify-between">
-                  <h3 className="text-2xl font-medium leading-tight tracking-tight">{service.title[lang]}</h3>
+                <div className="relative z-10 h-full flex flex-col justify-between">
+                  <h3 className="text-2xl font-medium leading-tight tracking-tight text-black group-hover:text-white transition-colors duration-500">
+                    {service.title[lang]}
+                  </h3>
                   <div className="flex justify-between items-end">
-                    <p className="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 max-w-[85%] leading-relaxed">
+                    <p className="text-sm text-gray-500 group-hover:text-white/70 opacity-0 group-hover:opacity-100 transition-all duration-500 max-w-[85%] leading-relaxed transform translate-y-2 group-hover:translate-y-0">
                       {service.description[lang]}
                     </p>
-                    <ArrowRight className="w-6 h-6 transform -rotate-45 group-hover:rotate-0 transition-transform duration-500" />
+                    <div className="p-3 rounded-full border border-black/10 group-hover:border-white/20 group-hover:bg-white/10 transition-all duration-500">
+                      <ArrowRight className="w-5 h-5 text-black group-hover:text-white transform -rotate-45 group-hover:rotate-0 transition-transform duration-500" />
+                    </div>
                   </div>
                 </div>
               </motion.div>

@@ -17,5 +17,4 @@ export interface Project {
 export interface Service {
   title: BilingualText;
   description: BilingualText;
-  imageUrl: string;
 }
