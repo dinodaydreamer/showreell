@@ -248,6 +248,6 @@ export const UI_TEXT = {
 
 export const HERO_VIDEO_URL = "https://drive.google.com/uc?export=download&id=1jg36_sPtPkfyNqY9BR2tqtWi7KuimFN7";
 export const HERO_IMAGE_URL = "https://i.ibb.co/0y4K7cRL/upscale-the-phone-202604031105.jpg";
-export const HERO_YOUTUBE_ID = "VSHbtxS0IwU";
+export const HERO_YOUTUBE_ID = "I8weUHWiV_8";
 export const ABOUT_IMAGE_URL = "https://i.ibb.co/zH51fmWQ/DINO.jpg";
 

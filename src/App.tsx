@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   Play, 
@@ -17,7 +17,9 @@ import {
   Youtube,
   Facebook,
   Phone,
-  Globe
+  Globe,
+  Volume2,
+  VolumeX
 } from 'lucide-react';
 import { CATEGORIES, PROJECTS, SERVICES, ABOUT_ME, UI_TEXT, HERO_VIDEO_URL, HERO_IMAGE_URL, HERO_YOUTUBE_ID, ABOUT_IMAGE_URL } from './constants';
 import { Category, Project } from './types';
@@ -28,6 +30,19 @@ export default function App() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  useEffect(() => {
+    if (iframeRef.current) {
+      const message = JSON.stringify({
+        event: 'command',
+        func: isMuted ? 'mute' : 'unMute',
+        args: []
+      });
+      iframeRef.current.contentWindow?.postMessage(message, '*');
+    }
+  }, [isMuted]);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -112,7 +127,8 @@ export default function App() {
           {HERO_YOUTUBE_ID ? (
             <div className="absolute inset-0 w-full h-full scale-150">
               <iframe
-                src={`https://www.youtube.com/embed/${HERO_YOUTUBE_ID}?autoplay=1&mute=1&controls=0&loop=1&playlist=${HERO_YOUTUBE_ID}&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1`}
+                ref={iframeRef}
+                src={`https://www.youtube.com/embed/${HERO_YOUTUBE_ID}?autoplay=1&mute=1&controls=0&loop=1&playlist=${HERO_YOUTUBE_ID}&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&enablejsapi=1`}
                 className="w-full h-full border-0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               />
@@ -125,8 +141,8 @@ export default function App() {
               referrerPolicy="no-referrer"
             />
           )}
-          <div className="absolute inset-0 bg-black/30" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black" />
+          <div className="absolute inset-0 bg-black/10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/80" />
         </div>
 
         <div className="relative z-10 text-center px-6">
@@ -147,6 +163,21 @@ export default function App() {
             </div>
           </motion.div>
         </div>
+
+        {/* Volume Toggle */}
+        <motion.button
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          onClick={() => setIsMuted(!isMuted)}
+          className="absolute bottom-10 right-10 z-20 p-4 border border-white/20 rounded-full hover:bg-white hover:text-black transition-all group backdrop-blur-sm"
+        >
+          {isMuted ? (
+            <VolumeX className="w-5 h-5" />
+          ) : (
+            <Volume2 className="w-5 h-5" />
+          )}
+        </motion.button>
 
         <motion.div 
           initial={{ opacity: 0 }}
